@@ -3,7 +3,7 @@ import img from '../assets/webpack.png'
 
 const textComponent = ()=> {
     const elH1 = document.createElement('h1')
-    elH1.innerHTML = "Olá Mundo!"
+    elH1.innerHTML = "Olá server Mundo!"
     elH1.classList.add('title')
     return elH1
 }

@@ -26,16 +26,17 @@ module.exports = {
                     'css-loader'
                 ]
             },
-            // {
-            //     test: /\.js$/,
-            //     exclude: /node_modules/,
-            //     use: {
-            //         loader: 'babel-loader',
-            //         options: {
-            //             presets: ['@babel/preset-env']
-            //         }
-            //     }
-            // },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                // use: {
+                //     loader: 'babel-loader',
+                //     options: {
+                //         presets: ['@babel/preset-env']
+                //     }
+                // }
+            },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loader: 'file-loader',
