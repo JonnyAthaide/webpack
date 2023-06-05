@@ -37,13 +37,28 @@ module.exports = {
                 //     }
                 // }
             },
+            // {
+            //     test: /\.(jpe?g|png|gif|svg)$/i,
+            //     loader: 'file-loader',
+            //     options: {
+            //         name: '[name].[ext]'
+            //     },
+            // },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]'
-                }
-            }
+                test: /\.(png|jpe?g)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: 'assets/', // pasta de saída para as imagens
+                    },
+                  },
+                  {
+                    loader: 'webp-loader',
+                  },
+                ],
+              },
         ]
     },
     plugins: [
@@ -52,7 +67,7 @@ module.exports = {
             template: './src/index.html'
         }),
         new miniCssExtractPlugin ({
-            filename: 'main.scss'
+            filename: 'main.css'
         })
     ]
 }

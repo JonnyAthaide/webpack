@@ -1,6 +1,11 @@
 import '../scss/main.scss'
 import img from '../assets/webpack.png'
 
+import imagemWebP from '../assets/webpack.png'
+
+// Use a imagemWebP como quiser
+
+
 const textComponent = ()=> {
     const elH1 = document.createElement('h1')
     elH1.innerHTML = "Olá server Mundo!"
@@ -10,7 +15,7 @@ const textComponent = ()=> {
 
 const imgComponent = ()=> {
     const elImg = new Image(300, 150)
-    elImg.src = img
+    elImg.src = imagemWebP
     return elImg
 }
 
