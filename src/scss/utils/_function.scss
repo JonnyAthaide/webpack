@@ -1,0 +1,16 @@
+@function rem($pxValue) {
+    $remValue: calc($pxValue / 16);
+    @return #{$remValue}rem;
+}
+
+@function vw($mobilePxValue) {
+    $vwValue: calc(($mobilePxValue / 428) * 100);
+    @return #{$vwValue}vw;
+}
+
+@function sizeClamp($value) {
+    $min: rem(calc($value * 0.66));
+    $val: vw(calc($value * 0.35));
+    $max: rem($value);
+    @return clamp( $min, $val, $max);
+}

@@ -1,8 +1,31 @@
 <header class="header p-1" id="headerWrap">
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
+    <!-- <div class="navbar">
+        <a href="#home">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+    </div> -->
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
     </div>
+
+    <!-- Use any element to open the sidenav -->
+    <span class="openbtn" onclick="openNav()">open</span>
 </header>
+
+
+<script>
+    /* Open the sidenav */
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+
+    /* Close/hide the sidenav */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>

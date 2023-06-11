@@ -1,5 +1,23 @@
-@import url(base/_font.scss);
-@import url(utils/_var.scss);
+// @import url(base/_font.scss);
+// @import url(base/_reset.scss);
 
-@import url(base/_reset.scss);
-@import url(base/_general.scss);
+// @import url(utils/_var.scss);
+// @import url(utils/_mixin.scss);
+// @import url(utils/function.scss);
+
+// @import url(base/_general.scss);
+
+// @import url(layout/_header.scss);
+// @import url(layout/_content.scss);
+// @import url(layout/_footer.scss);
+
+@import 'base/font';
+@import 'base/reset';
+
+@import 'utils/var';
+@import 'utils/function';
+@import 'utils/general';
+
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/footer';
