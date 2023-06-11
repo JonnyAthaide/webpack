@@ -7,6 +7,12 @@
     <title>Webpack</title>
 </head>
 <body>
+
+    <%= require('html-loader!./html/layout/header.html').default %>
+
+    <%= require('html-loader!./html/layout/main.html').default %>
     
+    <%= require('html-loader!./html/layout/footer.html').default %>
+
 </body>
 </html>
