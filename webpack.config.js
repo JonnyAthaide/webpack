@@ -7,7 +7,6 @@ const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-    mode: 'development',
     entry: './src/js/main.js',
     output: {
         filename: './js/main.js',
