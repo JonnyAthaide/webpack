@@ -2,6 +2,10 @@ const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
     mode: 'development',
     entry: './src/js/main.js',
@@ -10,8 +14,7 @@ module.exports = {
         path: path.resolve(__dirname, 'content')
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     miniCssExtractPlugin.loader,
@@ -46,28 +49,50 @@ module.exports = {
             // },
             {
                 test: /\.(png|jpe?g)$/,
-                use: [
-                  {
-                    loader: 'file-loader',
-                    options: {
-                      name: '[name].[ext]',
-                      outputPath: 'assets/', // pasta de saída para as imagens
+                use: [{
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/', // pasta de saída para as imagens
+                        },
                     },
-                  },
-                  {
-                    loader: 'webp-loader',
-                  },
+                    {
+                        loader: 'webp-loader',
+                    },
                 ],
-              },
+            },
         ]
     },
     plugins: [
-        new htmlWebpackPlugin ({
+        new htmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html'
         }),
-        new miniCssExtractPlugin ({
+        new miniCssExtractPlugin({
             filename: 'main.css'
+        }),
+        new ImageminPlugin({
+            test: /\.(jpe?g|png)$/i,
+            plugins: [
+                new ImageminWebpWebpackPlugin({
+                    overrideExtension: true,
+                    config: [{
+                        test: /\.(jpe?g|png)$/i,
+                        options: {
+                            quality: 80 // Ajuste a qualidade conforme necessário (0-100)
+                        }
+                    }]
+                })
+            ]
+        }),
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: 'src/assets',
+                to: 'assets',
+                globOptions: {
+                    ignore: ['*.png', '*.jpg', '*.jpeg']
+                }
+            }]
         })
     ]
 }
