@@ -4,9 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "npm run convert-images && webpack server --hot --mode development",
-    "build": "npm run convert-images && webpack --mode production",
-    "convert-images": "imagemin src/assets/**/*.{png,jpg,jpeg} --out-dir content/assets --plugin webp"
+    "start": "node convert-images.js && webpack server --hot --mode development",
+    "build": "node convert-images.js && webpack --mode production",
+    "convert-images": "node convert-images.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,10 +23,6 @@
     "html-loader": "^4.2.0",
     "html-webpack-include-assets-plugin": "^2.0.0",
     "html-webpack-plugin": "^5.5.1",
-    "imagemin": "^8.0.1",
-    "imagemin-webp": "^8.0.0",
-    "imagemin-webp-webpack-plugin": "^2.0.1",
-    "imagemin-webpack-plugin": "^2.4.2",
     "mini-css-extract-plugin": "^2.7.6",
     "node-sass": "^9.0.0",
     "path": "^0.12.7",

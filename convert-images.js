@@ -11,13 +11,7 @@ const outputDir = './content/assets';
 async function convertImages() {
   // Obter a lista de caminhos dos arquivos de imagem
   const imagePaths = await new Promise((resolve, reject) => {
-    glob(`${inputDir}/**/*.{png,jpg,jpeg}`, (err, files) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(files);
-      }
-    });
+    const imagePaths = glob.sync(`${inputDir}/**/*.{png,jpg,jpeg}`);
   });
 
   // Converter cada imagem para o formato WebP
