@@ -1,0 +1,29 @@
+.ico-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: "";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: rem(32px);
+        height: rem(32px);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @media #{$down-sm} {
+            width: vw(32px);
+            height: vw(32px);
+        }
+    }
+
+    // ICONS
+    &.ico_attach_money {
+        &:before {
+            // background-image: use-svg-fill(ico_attach_money, $color-0);
+        }
+    }
+}

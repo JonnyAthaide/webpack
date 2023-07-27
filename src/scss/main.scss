@@ -1,23 +1,30 @@
-// @import url(base/_font.scss);
-// @import url(base/_reset.scss);
 
-// @import url(utils/_var.scss);
-// @import url(utils/_mixin.scss);
-// @import url(utils/function.scss);
+/* IMPORT COMPASS & CORE ANIMATIONS */
 
-// @import url(base/_general.scss);
+/* IMPORT UTILITIES */
+@import "./utils/vars";
+// @import "./utils/sprites";
+@import "./utils/functions";
+@import "./utils/mixins";
+// @import "./utils/svg-assets";
 
-// @import url(layout/_header.scss);
-// @import url(layout/_content.scss);
-// @import url(layout/_footer.scss);
+/* IMPORT VENDORS */
 
-@import 'base/font';
-@import 'base/reset';
+/* IMPORT BASE */
+@import "./base/fonts";
+@import "./base/reset";
+@import "./base/utilities";
+@import "./base/buttons";
+@import "./base/forms";
+// @import "./base/ico-list";
 
-@import 'utils/var';
-@import 'utils/function';
-@import 'utils/general';
-
+/* IMPORT LAYOUT */
+@import 'layout/body-layout';
 @import 'layout/header';
 @import 'layout/content';
 @import 'layout/footer';
+
+/* IMPORT COMPONENTS */
+
+
+/* IMPORT PAGES */

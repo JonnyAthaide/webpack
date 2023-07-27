@@ -1,0 +1,118 @@
+@mixin ellipsis-multiline($line-height, $lines: 2, $set-height: true) {
+    @if $set-height == true {
+        height: rem($line-height * $lines);
+    } @else {
+        max-height: rem($line-height * $lines);
+    }
+
+    display: block;
+    overflow: hidden;
+    line-height: rem($line-height);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+    text-overflow: -o-ellipsis-lastline;
+}
+/* example use */
+/* @include ellipsis-multiline(20px, 2, 20px); */
+
+/* =================================================================== */
+@mixin use-sprite($sprite, $width: true) {
+    $url: #{nth($sprite, 9)};
+    $factor: 1px;
+
+    @if $width != true {
+        $factor: ($width + $sprite-padding) * 100 / nth($sprite, 5) / 100;
+    }
+
+    display: inline-block;
+    vertical-align: middle;
+    width: parseInt(nth($sprite, 5) + $sprite-padding) * $factor;
+    height: parseInt(nth($sprite, 6) + $sprite-padding) * $factor;
+    background-position: (parseInt(nth($sprite, 3)) * $factor) (parseInt(nth($sprite, 4)) * $factor);
+    background-size: (parseInt(nth($sprite, 7)) * $factor) auto;
+    background-image: v-url($url);
+    background-repeat: no-repeat;
+}
+/* =================================================================== */
+
+/* Webp-background */
+@mixin webp-background(
+    $img,
+    $color: transparent,
+    $repeat: repeat,
+    $attachment: scroll,
+    $position: center,
+    $size: auto,
+    $type: ".png"
+) {
+    background: $color url("#{$img-path}#{$img}.webp") $repeat $attachment $position / $size;
+
+    .no-webp & {
+        background-image: url("#{$img-path}#{$img}#{$type}");
+    }
+}
+/* example use */
+/* @include webp-background($img:'thumb-podcast-3', $type:'.jpg', $size: 100%); */
+
+/* =================================================================== */
+
+/* Gradient */
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    @if $orientation == "vertical" {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == "horizontal" {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+/* example use */
+/* @include gradient($color-0, $color-0, horizontal); */
+
+/* Font Face */
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+    $extmods: (
+        eot: "?",
+        svg: "#" + str-replace($name, " ", "_"),
+    );
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype",
+    );
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($font-path + $path + "." + $extmod)) format(quote($format)), comma);
+    }
+    @font-face {
+        font-family: quote($name);
+        src: local(quote($name));
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+        font-display: swap;
+    }
+}
+
+
+
+@mixin bg-webp($url) {
+    $webp-url: str-replace($url, '.png', '.webp');
+    $webp-url: str-replace($webp-url, '.jpg', '.webp');
+    $webp-url: str-replace($webp-url, '.gif', '.webp');
+    $webp-url: str-replace($webp-url, '.PNG', '.webp');
+    $webp-url: str-replace($webp-url, '.JPG', '.webp');
+    $webp-url: str-replace($webp-url, '.GIF', '.webp');
+  
+    background-image: url($webp-url);
+  
+    .no-webp & {
+      background-image: v-url($url);
+    }
+  }

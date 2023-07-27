@@ -1,0 +1,57 @@
+
+/*** MEDIAS ***/
+
+$sm: 576px !default;
+$md: 768px !default;
+$lg: 992px !default;
+$xl: 1200px !default;
+$xxl: 1400px !default;
+
+//@media #{$down-sm} {
+$down-sm: "screen and (max-width: #{$sm})";
+$down-md: "screen and (max-width: #{$md})";
+$down-lg: "screen and (max-width: #{$lg})";
+$down-xl: "screen and (max-width: #{$xl})";
+$down-xxl: "screen and (max-width: #{$xxl})";
+
+
+//@media #{$up-sm} {
+$up-sm: "screen and (min-width: #{$sm - 0.1})";
+$up-md: "screen and (min-width: #{$md - 0.1})";
+$up-lg: "screen and (min-width: #{$lg - 0.1})";
+$up-xl: "screen and (min-width: #{$xl - 0.1})";
+$up-xxl: "screen and (min-width: #{$xxl - 0.1})";
+
+/*** COLORs ***/
+
+// DEFAULT
+$white: #FFFFFF;
+$black: #000000;
+
+// GRAY
+$gray-0: #333333;
+
+// PALETTE
+$color-0: #43B12E;
+$color-0: #CAE6BF;
+
+$color-success: $black;
+$color-warning: $black;
+$color-error: $black;
+
+/*** FONTs ***/
+$font-primary: 'Roboto', sans-serif;
+$font-size: 16px;
+$default-font-size: 16px;
+
+/*** EASES ***/
+$ease-0: all 0.3s ease-in-out;
+$ease-1: all 0.5s ease-in-out;
+
+/*** CONFIGs ***/
+$img-path: "../assets/";
+$font-path: "../fonts/";
+$mobile-viewport-with-default: 428px; 
+$version: "#{random(9999)}" !default;
+$sprite-padding: 2px;
+

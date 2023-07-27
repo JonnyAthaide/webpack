@@ -9,55 +9,29 @@ module.exports = {
     filename: './js/main.js',
     path: path.resolve(__dirname, 'content'),
   },
+  resolve: {
+    alias: {
+      '@assets': path.resolve(__dirname, 'content/assets'),
+    },
+  },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(sa|sc|c)ss$/,
-        use: [
-            miniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader'
-            ]
-        },
-        {
-            test: /\.css$/i,
-            use: [
-                'style-loader',
-                'css-loader'
-            ]
-        },
-        {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            // use: {
-            //     loader: 'babel-loader',
-            //     options: {
-            //         presets: ['@babel/preset-env']
-            //     }
-            // }
-        },
-        // {
-        //     test: /\.(jpe?g|png|gif|svg)$/i,
-        //     loader: 'file-loader',
-        //     options: {
-        //         name: '[name].[ext]'
-        //     },
-        // },
-        {
-            test: /\.(png|jpe?g)$/,
-            use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'assets/', // pasta de saída para as imagens
-                    },
-                },
-                {
-                    loader: 'webp-loader',
-                },
-            ],
-        },
-    ]
+        use: [miniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      /* Comentei as regras para babel
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+      */
+    ],
   },
   plugins: [
     new htmlWebpackPlugin({

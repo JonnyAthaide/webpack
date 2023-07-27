@@ -1,0 +1,232 @@
+.btn {
+	border-radius: 50px;
+	text-align: center;
+	font-family: $font-primary;
+	font-style: normal;
+	font-weight: 400;
+	font-size: rem(16px);
+	letter-spacing: 1.6px;
+	width: 100%;
+	padding: 9px 1rem;
+
+	@media #{$down-sm} {
+		font-size: vw(14px);
+		padding: vw(12px);
+	}
+
+	&--solid {
+		background-color: $color-0;
+		color: $white;
+
+		&:hover {
+			background-color: $color-0;
+			color: $gray-0;
+		}
+
+		&:active,
+		&:focus {
+			background-color: $color-0;
+			font-weight: 600;
+			color: $gray-0;
+		}
+
+		&:disabled,
+		&[disabled],
+		&.disabled {
+			background-color: $gray-0;
+			color: $gray-0;
+			pointer-events: none;
+		}
+
+
+		&.letter-spacing002 {
+			letter-spacing: 0.02em;
+		}
+	}
+
+	&--ghost {
+		background-color: transparent;
+		border: 1px solid $color-0;
+		color: $color-0;
+
+		&:hover {
+			background-color: $color-0;
+			border-color: $color-0;
+		}
+
+		&:active,
+		&:focus {
+			background-color: transparent;
+			border-color: $color-0;
+			color: $color-0;
+		}
+
+		&:disabled,
+		&[disabled],
+		&.disabled {
+			background-color: transparent;
+			border: 2px solid $gray-0;
+			pointer-events: none;
+		}
+	}
+
+	&--success {
+		background-color: $color-success;
+	}
+
+	&--danger {
+		background-color: $color-error;
+	}
+
+	/* btn sizes */
+	&--big {
+		width: 420px;
+
+		@media #{$down-sm} {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	&--medium {
+		width: 320px;
+
+		@media #{$down-sm} {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	&--small {
+		width: 160px;
+		min-height: 40px;
+
+		@media #{$down-sm} {
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+
+	&--icon {
+		position: relative;
+		padding-left: 44px;
+
+		span {
+			display: flex;
+			align-items: center;
+
+			position: absolute;
+			left: 24px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+
+			@media #{$down-sm} {
+				font-size: vw(24);
+			}
+
+			&.ico_chat {
+				&:before {
+					width: 27px;
+					height: 27px;
+					// background-image: use-svg-fill(ico_chat, $white);
+				}
+			}
+		}
+	}
+
+	&--whatsapp {
+		padding-left: 44px;
+		position: relative;
+
+		&::before {
+			content: "";
+			display: block;
+
+			width: 27px;
+			height: 27px;
+			// background-image: use-svg-fill(whatsapp, $white, $white);
+			background-position: center;
+			background-repeat: no-repeat;
+
+			position: absolute;
+			left: 24px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+	}
+
+
+	&--light {
+		color: $gray-0;
+		border-color: $gray-0;
+	}
+}
+
+.link-default {
+	text-decoration: underline;
+	font-size: rem(16px);
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+
+	&--login {
+		transition: $ease-0;
+		padding: 0;
+
+		cursor: pointer;
+		display: block;
+		margin: 0 auto;
+
+		font-style: normal;
+		font-weight: 400;
+		font-size: rem(14);
+		line-height: 1.2;
+
+		text-align: center;
+		letter-spacing: 0.02em;
+		text-decoration-line: underline;
+
+		color: $color-0;
+
+		@media #{$down-md} {
+			font-size: vw(14);
+		}
+
+		&:hover {
+			color: $gray-0;
+		}
+	}
+}
+
+.btn-link-default {
+	@extend .link-default;
+
+	background-color: transparent;
+	border: none;
+
+	color: $color-0;
+	transition: $ease-0;
+	padding: 0;
+}
+
+.btn-link-modal {
+	text-decoration: underline;
+	font-size: rem(16px);
+	cursor: pointer;
+
+	background-color: transparent;
+	border: none;
+
+	color: $color-0;
+	transition: $ease-0;
+	padding: 0;
+
+	&:hover {
+		color: $color-0;
+		opacity: 0.8;
+	}
+
+}
